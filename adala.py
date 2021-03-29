@@ -256,3 +256,12 @@ class IOSParse:
             for line in ip_interfaces:
                 configs = confparse.find_all_children(line)
         return configs
+
+    def get_blocks(self,config,text):
+        confparse = CiscoConfParse(config)
+        configs = []
+        for line in confparse.find_blocks(text):
+            if re.match("^[0-9a-zA-Z]",line):
+                configs.append("\n")
+            configs.append(line)
+        return configs
