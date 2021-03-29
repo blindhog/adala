@@ -10,7 +10,7 @@ argparser.add_argument('-t', '--text', help='Regex Search Text', required=True)
 args = argparser.parse_args()
 if args.files:
     file_list = args.files
-if text=args.text
+text=args.text
 
 for file in file_list:
     confparse = CiscoConfParse(file)
