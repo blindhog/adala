@@ -267,3 +267,11 @@ class IOSParse:
                     configs.append("!")
             configs.append(line)
         return configs
+
+    def get_lines(self,config,text):
+        confparse = CiscoConfParse(config)
+        configs = []
+        lines = confparse.find_lines(text)
+        for line in lines:
+            configs.append(line)
+        return configs
