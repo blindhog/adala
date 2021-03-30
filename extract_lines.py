@@ -16,6 +16,6 @@ for file in file_list:
     confparse = CiscoConfParse(file)
     iosparse = adala.IOSParse()
     hostname = iosparse.get_hostname(file)
-    iosparse.print_list(iosparse.generate_header_h2("{} configuration blocks containing {}\n! {}".format(hostname,text,file)))
-    iosparse.print_list(iosparse.get_blocks(file,text))
+    iosparse.print_list(iosparse.generate_header_h2("{} configuration lines containing {}\n! {}".format(hostname,text,file)))
+    iosparse.print_list(iosparse.get_lines(file,text))
     
