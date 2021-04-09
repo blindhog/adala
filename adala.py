@@ -265,3 +265,12 @@ class IOSParse:
                 configs.append("\n")
             configs.append(line)
         return configs
+
+    def get_all_children(self,config,text):
+        confparse = CiscoConfParse(config)
+        configs = []
+        for line in confparse.find_all_children(text):
+            if re.match("^[0-9a-zA-Z]",line):
+                configs.append("\n")
+            configs.append(line)
+        return configs
