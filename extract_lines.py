@@ -18,4 +18,3 @@ for file in file_list:
     hostname = iosparse.get_hostname(file)
     iosparse.print_list(iosparse.generate_header_h2("{} configuration lines containing {}\n! {}".format(hostname,text,file)))
     iosparse.print_list(iosparse.get_lines(file,text))
-    
