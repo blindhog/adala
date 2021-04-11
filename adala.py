@@ -260,9 +260,13 @@ class IOSParse:
     def get_blocks(self,config,text):
         confparse = CiscoConfParse(config)
         configs = []
-        for line in confparse.find_blocks(text):
-            if re.match("^[0-9a-zA-Z]",line):
-                configs.append("\n")
+        blocks = confparse.find_blocks(text)
+        for position, line in enumerate(blocks):
+            # print("len_blocks: {}".format(len(blocks)))
+            # print("position: {}".format(position))
+            if len(blocks) != (position+1):
+                if re.match("^[0-9a-zA-Z]",line) and re.match("^ ",blocks[position+1]):
+                    configs.append("!")
             configs.append(line)
         return configs
 
