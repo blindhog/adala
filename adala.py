@@ -254,7 +254,7 @@ class IOSParse:
         ip_interfaces = confparse.find_parents_w_child('^interface','ip address')
         if ip_interfaces != []:
             for line in ip_interfaces:
-                configs = confparse.find_all_children(line)
+                configs = confparse.find_all_children('^{}'.format(line))
         return configs
 
     def get_blocks(self,config,text):
